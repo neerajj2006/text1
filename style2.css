@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Reset and Base Styles */
+html {
+    scroll-behavior: smooth;
+}
+
+body, h1, h2, h3, p, ul, li, a {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Header */
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background 0.4s ease;
+}
+
+header.transparent {
+    background: rgba(255, 255, 255, 0);
+}
+
+header.scrolled {
+    background: rgb(0, 65, 131);
+}
+
+/* Div 1 (Top Links) */
+.div1 {
+    background-color: #001f3f;
+    padding: 2px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+}
+
+.div1 ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 10px;
+}
+
+.div1 li a {
+    color: white;
+    font-size: 12px;
+    text-decoration: none;
+    padding: 2px 5px;
+    transition: color 0.3s ease;
+}
+
+.div1 li a:hover {
+    color: #00ffff;
+}
+
+/* Div 2 (Top Bar with Logos) */
+.top-bar {
+    background-color: transparent;
+    padding: 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+}
+
+.top-bar img {
+    width: 100px;
+    height: auto;
+}
+
+.top-bar.scrolled img {
+    filter: brightness(0) invert(1);
+}
+
+/* Div 3 (Navigation) */
+nav.div3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 30px;
+    background: transparent;
+}
+
+.nav-items {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-items li {
+    margin: 0 15px;
+}
+
+.nav-items li a {
+    font-size: 18px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-items li a:hover {
+    color: #ADD8E6;
+}
+
+#certificates a {
+    color: cyan;
+}
+
+#certificates a:hover {
+    color: darkcyan;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    width: 30px;
+    gap: 4px;
+}
+
+.hamburger span {
+    background-color: white;
+    height: 3px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.mobile-only {
+    display: none;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+    .top-bar {
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .top-bar img {
+        width: 80px;
+    }
+
+    .div1 ul {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .nav-items li a {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .div1 {
+        display: none;
+        justify-content: center;
+        padding: 10px;
+        height: auto;
+        background: rgba(0, 51, 102, 0.95);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 998;
+    }
+
+    .div1.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-items {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 64px; /* Adjust based on .div1 height when visible */
+        left: 0;
+        width: 100%;
+        background: rgba(0, 51, 102, 0.95);
+        padding: 20px 0;
+        z-index: 999;
+    }
+
+    .nav-items.active {
+        display: flex;
+    }
+
+    .nav-items li {
+        margin: 10px 0;
+    }
+
+    .nav-items li a {
+        font-size: 16px;
+        padding: 10px;
+        display: block;
+        text-align: center;
+    }
+
+    .mobile-only {
+        display: block;
+    }
+
+    .top-bar {
+        justify-content: space-between;
+        padding: 5px 10px;
+    }
+}
+
+ 
